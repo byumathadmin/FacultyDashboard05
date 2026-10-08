@@ -204,7 +204,7 @@ input[type="range"] { width: 100%; min-height: 34px; margin: 17px 0 3px; accent-
 .faculty-grid.is-horizontal .faculty-meta,
 .faculty-grid.is-horizontal .hours-block { position: relative; border-top: 0; padding-top: 5px; }
 .faculty-grid.is-horizontal .faculty-meta::before,
-.faculty-grid.is-horizontal .hours-block::before { position: absolute; top: 0; left: -165px; width: calc(100% + 165px); border-top: 1px solid color-mix(in srgb, var(--tile-muted) 25%, transparent); content: ""; }
+.faculty-grid.is-horizontal .hours-block::before { position: absolute; top: 0; left: 0px; width: 210px; border-top: 1px solid color-mix(in srgb, var(--tile-muted) 25%, transparent); content: ""; }
 .faculty-grid.is-horizontal .hours-block { margin-top: 5px; }
 .faculty-grid.is-horizontal .faculty-name { font-size: clamp(18px, 2vw, 23px); white-space: normal; }
 .faculty-grid.is-horizontal .faculty-title { margin-bottom: 5px; }
