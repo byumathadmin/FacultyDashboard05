@@ -50,7 +50,7 @@ body * {
 
 button, input { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
-button, input, .faculty-card, .modal-close { cursor: pointer; }
+button, input, .faculty-card { cursor: pointer; }
 
 .app-shell {
   display: flex;
@@ -222,15 +222,15 @@ button, input, .faculty-card, .modal-close { cursor: pointer; }
 
 .modal-backdrop { position: fixed; z-index: 10; inset: 0; display: flex; align-items: center; justify-content: center; padding: 10vh 10vw; background: rgba(8, 17, 24, .78); backdrop-filter: blur(5px); touch-action: auto; }
 .modal-backdrop[hidden] { display: none; }
-.website-modal { position: relative; display: flex; flex-direction: column; width: min(78vw, 1200px); height: min(86vh, 960px); min-width: 310px; min-height: 420px; border-radius: 22px; background: #fff; box-shadow: 0 30px 90px rgba(0, 0, 0, .36); overflow: hidden; touch-action: pan-y; }
+.website-modal { position: relative; display: flex; flex-direction: column; width: min(78vw, 1200px); height: min(86vh, 960px); min-width: 310px; min-height: 420px; border-radius: 22px; background: #fff; box-shadow: 0 30px 90px rgba(0, 0, 0, .36); overflow: hidden; touch-action: auto; }
+.website-modal:focus { outline: none; }
 .modal-header { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 20px 24px; border-bottom: 1px solid #e2e7e9; }
 .modal-header h2 { margin: 0; color: var(--ink); font-family: "Space Grotesk", sans-serif; font-size: 22px; letter-spacing: -.04em; }
 .external-link { color: var(--accent-dark); font-size: 11px; font-weight: 700; text-decoration: none; white-space: nowrap; }
-.iframe-wrap { position: relative; flex: 1; min-height: 0; background: #f5f7f7; overscroll-behavior: contain; touch-action: pan-y; }
-.iframe-wrap iframe { width: 100%; height: 100%; border: 0; background: #fff; touch-action: pan-y; }
+.iframe-wrap { position: relative; flex: 1; min-height: 0; background: #f5f7f7; overscroll-behavior: auto; touch-action: auto; }
+.iframe-wrap iframe { display: block; width: 100%; height: 100%; border: 0; background: #fff; overflow: auto; overscroll-behavior: auto; touch-action: auto; -webkit-overflow-scrolling: touch; }
 .iframe-loading { position: absolute; z-index: 1; inset: 0; display: grid; place-items: center; color: var(--muted); background: #f5f7f7; font-size: 12px; pointer-events: none; transition: opacity .2s ease; }
 .iframe-loading.is-hidden { opacity: 0; }
-.modal-close { position: absolute; z-index: 11; top: calc(10vh - 15px); right: calc(75vw + 12px); display: grid; width: 56px; height: 56px; place-items: center; border: 1px solid rgba(255,255,255,.45); border-radius: 50%; color: #fff; background: rgba(255,255,255,.12); cursor: pointer; font-size: 32px; line-height: 1; touch-action: manipulation; }
 
 @media (max-width: 800px) {
   html, body { overflow: auto; }
@@ -245,7 +245,6 @@ button, input, .faculty-card, .modal-close { cursor: pointer; }
   .header-note { padding: 0; }
   .modal-backdrop { padding: 6vh 5vw; }
   .website-modal { width: 90vw; height: 88vh; }
-  .modal-close { top: calc(6vh - 15px); right: auto; left: 4vw; }
   .building-map-layout { grid-template-columns: 1fr; }
   .map-image-wrap { width: min(2300px, 100%); height: min(1800px, 70vh); min-height: 440px; }
   .floor-list { grid-template-columns: repeat(3, 1fr); }
@@ -259,7 +258,6 @@ button, input, .faculty-card, .modal-close { cursor: pointer; }
   .faculty-grid.is-horizontal .faculty-photo-column { width: 100%; flex-basis: auto; }
   .faculty-grid.is-horizontal .portrait { width: 100%; flex-basis: auto; }
   .modal-header { align-items: start; flex-direction: column; }
-  .modal-close { left: 3vw; }
   .floor-list { grid-template-columns: 1fr; }
   .graduate-card { flex-direction: column; }
   .graduate-portrait { width: 88px; }

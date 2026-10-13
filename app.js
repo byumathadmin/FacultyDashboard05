@@ -21,7 +21,7 @@ const loadingState = document.querySelector("#loadingState");
 const currentPageLabel = document.querySelector("#currentPageLabel");
 const floorNavigation = document.querySelector("#floorNavigation");
 const modalBackdrop = document.querySelector("#modalBackdrop");
-const modalClose = document.querySelector("#modalClose");
+const websiteModal = document.querySelector(".website-modal");
 const websiteFrame = document.querySelector("#websiteFrame");
 const iframeLoading = document.querySelector("#iframeLoading");
 const modalTitle = document.querySelector("#modalTitle");
@@ -233,7 +233,7 @@ function openModal(index) {
   websiteFrame.src = profileUrl;
   modalBackdrop.hidden = false;
   document.body.classList.add("modal-open");
-  modalClose.focus();
+  websiteModal.focus();
 }
 
 function closeModal() {
@@ -282,7 +282,6 @@ grid.addEventListener("keydown", (event) => {
   }
 });
 
-modalClose.addEventListener("click", closeModal);
 modalBackdrop.addEventListener("click", (event) => {
   if (event.target === modalBackdrop) closeModal();
 });
