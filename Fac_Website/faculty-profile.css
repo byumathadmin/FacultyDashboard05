@@ -284,22 +284,17 @@ a:focus-visible {
 /* InfoDisplay touch-first profile overrides */
 html {
   min-height: 100%;
-  overflow-y: auto;
+  overflow-y: scroll !important;
   overflow-x: hidden;
-  scrollbar-width: none;
-  touch-action: pan-y;
-}
-
-html::-webkit-scrollbar {
-  display: none;
+  touch-action: auto !important;
 }
 
 body {
   min-height: 100vh;
-  overflow-y: auto;
+  overflow-y: scroll !important;
   overflow-x: hidden;
-  overscroll-behavior-y: contain;
-  touch-action: pan-y;
+  overscroll-behavior-y: auto;
+  touch-action: auto !important;
   cursor: default;
 }
 
