@@ -23,6 +23,8 @@ const floorNavigation = document.querySelector("#floorNavigation");
 const modalBackdrop = document.querySelector("#modalBackdrop");
 const websiteModal = document.querySelector(".website-modal");
 const websiteFrame = document.querySelector("#websiteFrame");
+const directionsImage = document.querySelector("#directionsImage");
+const directionsMissing = document.querySelector("#directionsMissing");
 const iframeLoading = document.querySelector("#iframeLoading");
 const modalTitle = document.querySelector("#modalTitle");
 const dashboard = document.querySelector("#dashboard");
@@ -227,7 +229,16 @@ function openModal(index) {
   const [name, person] = state.faculty[index] || [];
   if (!person) return;
   const profileUrl = getProfileUrl(name);
+  const profileFilename = window.FACULTY_PROFILES?.[name];
+  const directionsFilename = profileFilename
+    ? profileFilename.replace(/\.html$/i, ".png")
+    : `${String(name).replaceAll(" ", "_")}.png`;
   modalTitle.textContent = name;
+  document.querySelector("#directionsTitle").textContent = `${name} room directions`;
+  directionsImage.alt = `Directions to ${name}’s room`;
+  directionsMissing.hidden = true;
+  directionsImage.hidden = false;
+  directionsImage.src = `assets/${directionsFilename}`;
   websiteFrame.title = `${name} faculty website`;
   iframeLoading.classList.remove("is-hidden");
   websiteFrame.src = profileUrl;
@@ -240,6 +251,7 @@ function closeModal() {
   modalBackdrop.hidden = true;
   document.body.classList.remove("modal-open");
   websiteFrame.src = "about:blank";
+  directionsImage.removeAttribute("src");
 }
 
 async function loadFaculty() {
@@ -286,6 +298,10 @@ modalBackdrop.addEventListener("click", (event) => {
   if (event.target === modalBackdrop) closeModal();
 });
 websiteFrame.addEventListener("load", () => iframeLoading.classList.add("is-hidden"));
+directionsImage.addEventListener("error", () => {
+  directionsImage.hidden = true;
+  directionsMissing.hidden = false;
+});
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && !modalBackdrop.hidden) closeModal();
 });
